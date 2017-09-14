@@ -1,9 +1,9 @@
+import 'packs/polyfills';
 import {Component, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import 'packs/polyfills';
 
 const CustomerSearchComponent = Component({
     selector: 'shine-customer-search',
@@ -17,7 +17,7 @@ const CustomerSearchComponent = Component({
             <input type="text" id="keywords" name="keywords" placeholder="First Name, Last Name, or Email Address" class="form-control input-lg" bindon-ngModel="keywords" on-ngModelChange="search()">
         </form>
     </section>
-    <section class="search-results">
+    <section class="search-results" *ngIf="customers">
         <header>
             <h1 class="h3">Results</h1>
         </header>
@@ -55,6 +55,7 @@ const CustomerAppModule = NgModule({
     bootstrap: [ CustomerSearchComponent ]
 }).Class({
     constructor() {
+        //
     }
 });
 
