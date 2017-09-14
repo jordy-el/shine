@@ -16,24 +16,20 @@
     <header>
         <h1 class="h3">Results</h1>
     </header>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Joined</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @customers.each do |c| %>
-                <tr>
-                    <td><%= c.first_name %></td>
-                    <td><%= c.last_name %></td>
-                    <td><%= c.email %></td>
-                    <td><%= l c.created_at.to_date %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <%= render 'pager', keywords: @keywords, page: @page if @customers.present? %>
+    <ol class="list-group">
+        <% @customers.each do |c| %>
+            <li class="list-group-item">
+                <h3 class="pull-right">
+                    <small class="text-uppercase">Joined</small>
+                    <%= l c.created_at.to_date %>
+                </h3>
+                <h2 class="h3">
+                    <%= "#{c.first_name} #{c.last_name}" %>
+                    <small><%= c.username %></small>
+                </h2>
+                <h4><%= c.email %></h4>
+            </li>
+        <% end %>
+    </ol>
 </section>
