@@ -13,7 +13,11 @@ class CustomersController < ApplicationController
                        .offset(PAGE_SIZE * @page)
                        .limit(PAGE_SIZE)
     else
-      @customers = []
+      @customers = Customer
+                    .all
+                    .order('first_name asc')
+                    .offset(PAGE_SIZE * @page)
+                    .limit(PAGE_SIZE)
     end
   end
 end
