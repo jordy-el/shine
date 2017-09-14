@@ -39,6 +39,9 @@ const CustomerSearchComponent = Component({
             this.http = http;
         }
     ],
+    ngOnInit() {
+        this.search();
+    },
     search() {
         if (this.keywords.length < 0) { return; }
         this.http.get('/customers.json?keywords=' + this.keywords)
