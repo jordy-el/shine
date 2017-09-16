@@ -1,9 +1,5 @@
-import 'packs/polyfills';
-import {Component, NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {Http, HttpModule} from '@angular/http';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
 const CustomerSearchComponent = Component({
     selector: 'shine-customer-search',
@@ -24,7 +20,7 @@ const CustomerSearchComponent = Component({
         <ol class="list-group">
             <li *ngFor="let c of customers" class="list-group-item">
                 <h3 class="pull-right"><small class="text-uppercase">Joined </small>{{ c.created_at }}</h3>
-                <h2 class="h3">{{ c.first_name + ' ' + c.last_name }}<small>{{ c.username }}</small></h2>
+                <h2 class="h3">{{ c.first_name + ' ' + c.last_name }}<small> {{ c.username }}</small></h2>
                 <h4>{{ c.email }}</h4>
             </li>
         </ol>
@@ -43,20 +39,10 @@ const CustomerSearchComponent = Component({
         this.search();
     },
     search() {
-        if (this.keywords.length < 0) { return; }
+        if (this.keywords.length < 3) { this.customers = []; return; }
         this.http.get('/customers.json?keywords=' + this.keywords)
             .subscribe((response) => { this.customers = response.json().customers; }, (response) => { console.log(response); });
     }
 });
 
-const CustomerAppModule = NgModule({
-    imports: [ BrowserModule, FormsModule, HttpModule ],
-    declarations: [ CustomerSearchComponent ],
-    bootstrap: [ CustomerSearchComponent ]
-}).Class({
-    constructor() {
-        //
-    }
-});
-
-platformBrowserDynamic().bootstrapModule(CustomerAppModule);
+export { CustomerSearchComponent };

@@ -1,3 +1,5 @@
-const environment = require('./environment')
+const environment = require('./environment');
 
-module.exports = environment.toWebpackConfig()
+environment.plugins.get('Manifest').opts.writeToFileEmit = false;
+
+module.exports = environment.toWebpackConfig();
