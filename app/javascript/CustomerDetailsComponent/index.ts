@@ -13,7 +13,6 @@ const CustomerDetailsComponent = Component({
     function(activatedRoute, http) {
       this.activatedRoute = activatedRoute;
       this.http = http;
-      this.id = null;
       this.customer = null;
     }
   ],
