@@ -15,6 +15,11 @@
         <li *ngFor="let c of customers" class="list-group-item">
             <h3 class="pull-right"><small class="text-uppercase">Joined </small>{{ c.created_at }}</h3>
             <h2 class="h3">{{ c.first_name + ' ' + c.last_name }}<small> {{ c.username }}</small></h2>
+            <div class="pull-right">
+                <button class="btn btn-small btn-primary" on-click="viewDetails(c)">
+                    View details...
+                </button>
+            </div>
             <h4>{{ c.email }}</h4>
         </li>
     </ol>

@@ -9,6 +9,7 @@
     "no-console": false,
     "ordered-imports": false,
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-preblock"],
-    "no-empty": false
+    "no-empty": false,
+    "no-string-literal": false
   }
 }

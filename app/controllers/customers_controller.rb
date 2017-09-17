@@ -1,6 +1,11 @@
 class CustomersController < ApplicationController
   PAGE_SIZE = 10
 
+  def ng
+    @base_url = '/customers/ng'
+    render :index
+  end
+
   def index
     @page = (params[:page] || 0).to_i
 
@@ -21,12 +26,19 @@ class CustomersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {}
+      format.html { redirect_to customers_ng_url }
       format.json {
         render json: {
             customers: @customers
         }
       }
+    end
+  end
+
+  def show
+    @customer = Customer.find(params[:id])
+    respond_to do |format|
+      format.json { render json: { customer: @customer } }
     end
   end
 end

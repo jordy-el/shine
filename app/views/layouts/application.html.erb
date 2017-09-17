@@ -8,6 +8,7 @@
         <%= javascript_include_tag 'application' %>
         <%= javascript_pack_tag 'application' %>
         <%= stylesheet_pack_tag 'application' %>
+        <%= "<base href=\"#{@base_url}\">".html_safe if @base_url %>
     </head>
 
     <body class="container">
