@@ -1,10 +1,134 @@
-<section class="customer-details" *ngIf="customer">
-    <h1>Customer: {{ customer.id }}</h1>
-    <h2>{{ customer.first_name }} {{ customer.last_name }}</h2>
-    <h3>{{ customer.email }}</h3>
-    <h4>{{ customer.username }}</h4>
-    <h5>
-        <small class="text-uppercase">Joined</small>
-        {{ customer.created_at }}
-    </h5>
+<section class="customer-details" *ngIf="customer" style="margin: 2rem;">
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <article class="panel panel-primary">
+                    <header class="panel-heading">
+                        <h1>Customer</h1>
+                    </header>
+                    <section class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first-name" class="sr-only">First Name</label>
+                                    <input id="first-name" name="first-name" class="form-control" value="{{ customer.first_name }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last-name" class="sr-only">Last Name</label>
+                                    <input id="last-name" name="last-name" class="form-control" value="{{ customer.last_name }}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="username" class="sr-only">Username</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">@</div>
+                                        <input id="username" name="username" class="form-control" value="{{ customer.username }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input id="email" name="email" class="form-control" value="{{ customer.email }}">
+                        </div>
+                    </section>
+                    <footer class="panel-footer">
+                        <label for="joined">Joined</label><span id="joined"> {{ customer.created_at }}</span>
+                    </footer>
+                </article>
+                <article class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2>Shipping Address</h2>
+                    </header>
+                    <section class="panel-body">
+                        <div class="form-group">
+                            <label class="sr-only" for="street-address">Street Address</label>
+                            <input class="form-control" id="street-address" name="street-address" value="123 Fake Street">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="street-address-extra">Street Address Extra</label>
+                            <input class="form-control" id="street-address-extra" name="street-address-extra" value="Number 69">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="sr-only" for="city">City</label>
+                                    <input class="form-control" id="city" name="city" value="Faketown">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="sr-only" for="state">State</label>
+                                    <input class="form-control" id="state" name="state" value="NY">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="sr-only" for="zip">Zip</label>
+                                    <input class="form-control" id="zip" name="zip" value="69696">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2>Billing Info</h2>
+                    </header>
+                    <section class="panel-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p class="h4">
+                                    ****-****-****-1234
+                                    <span class="label label-success">VISA</span>
+                                </p>
+                                <p>
+                                    <label>Expires:</label> 04/19
+                                </p>
+                            </div>
+                            <div class="col-md-5 text-right">
+                                <button class="btn btn-lg btn-default">
+                                    View Details...
+                                </button>
+                            </div>
+                        </div>
+                        <h3>Billing Address <label class="sr-only" for="same-address">Same Address</label><input id="same-address" name="same-address" type="checkbox"> Same as shipping?</h3>
+                        <div class="form-group">
+                            <label class="sr-only" for="billing-street-address">Street Address</label>
+                            <input class="form-control" id="billing-street-address" name="billing-street-address" value="123 Fake Street">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="billing-street-address-extra">Street Address Extra</label>
+                            <input class="form-control" id="billing-street-address-extra" name="billing-street-address-extra" value="Number 69">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="sr-only" for="billing-city">City</label>
+                                    <input class="form-control" id="billing-city" name="billing-city" value="Faketown">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="sr-only" for="billing-state">State</label>
+                                    <input class="form-control" id="billing-state" name="billing-state" value="NY">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="sr-only" for="billing-zip">Zip</label>
+                                    <input class="form-control" id="billing-zip" name="billing-zip" value="69696">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </form>
 </section>
