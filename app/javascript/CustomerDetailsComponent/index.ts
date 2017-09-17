@@ -25,7 +25,7 @@ const CustomerDetailsComponent = Component({
       this.customer = response.json().customer;
     };
     const routeSuccess = (params) => {
-      this.http.get(`/customers/${params['id']}.json`).subscribe(customerGetSuccess, observableFailed);
+      this.http.get(`/customers/${params.id}.json`).subscribe(customerGetSuccess, observableFailed);
     };
     this.activatedRoute.params.subscribe(routeSuccess, observableFailed);
   }
