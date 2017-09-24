@@ -11,6 +11,7 @@ Capybara.current_driver = Capybara.javascript_driver
 
 Capybara::Webkit.configure do |config|
   config.debug = false
+  config.allow_url('fonts.googleapis.com')
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!

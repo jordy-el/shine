@@ -5,4 +5,4 @@ task :karma do
   system 'yarn run karma start spec/javascript/karma.conf.js --single-run --log-level=error --fail-on-empty-test-suite'
 end
 
-task spec: :karma
+task spec: :karma unless ENV['SKIP_KARMA'] == 'true'
